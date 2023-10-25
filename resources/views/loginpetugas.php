@@ -116,7 +116,7 @@ body {
    
    <body>
         <div class="input">
-          <h1>Login</h1>
+          <h1>Login Petugas</h1>
             <form action="login" method="POST">
             @method("POST")
             @csrf
@@ -130,7 +130,7 @@ body {
              <input name="password" type="password" placeholder="Password">
          </div>
          <a link href = "{{('table_masyarakat')}}"><button type="submit" name="login" class="btn-input">Login</button>
-         <div class="bottom">
+         <div class="bottom p">
              <center>
              <p>Belum punya akun?</p> <a link href="{{('registrasi')}}">Register disini</a>
              </center>

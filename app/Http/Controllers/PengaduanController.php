@@ -59,7 +59,7 @@ class PengaduanController extends Controller
 
         DB::table('pengaduan')->insert([
             'tgl_pengaduan' => date('Y-m-d'),
-            'nik' => '123',
+            'nik' => '001',
             'isi_laporan' => $isi_laporan,
             'foto' => $request->foto->getClientOriginalName(),
             'status' => '0'

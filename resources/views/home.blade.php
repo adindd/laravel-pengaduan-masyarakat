@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="maul/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dinda/bs/bs/css/bootstrap.min.css">
    
 </head>
 <body>
@@ -11,13 +11,13 @@
  
 <a href="{{ url('registrasi') }}">Registrasi</a> |
 <a href="{{ url('login') }}">Login</a> |
-<a href="{{ url('table') }}">Table</a> |
-<a href="{{ url('logout') }}">Logout</a> |
+
 
 
 </div>
 
     <h1>{{$TextJudul}} </h1>
+
     
 </body>
 </html>

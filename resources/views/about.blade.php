@@ -7,7 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ini Halaman About</h1>
-    <p> Selamat datang </p>
+    <h1>Ini Halaman Petugas</h1>
 </body>
 </html>

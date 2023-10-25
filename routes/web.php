@@ -6,6 +6,9 @@ use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LoginPetugasController;
+
+
 
 
 Route::get('/', function () {
@@ -55,3 +58,10 @@ Route::get("/register", [Authcontroller::class, 'register']);
 Route::post('/registrasi', [MasyarakatController::class, 'registrasi']) ;
 Route::post('/login', [LoginController::class, 'login']) ;
 Route::get('/login', [LoginController::class, 'index']) ;
+
+Route::middleware(['cekPetugas'])->group(function(){
+
+Route::post('/petugas/login', [LoginPetugasController::class, 'loginpetugas']) ;
+Route::get('/petugas/login', [LoginPetugasController::class, 'loginpetugas']) ;
+});
+
