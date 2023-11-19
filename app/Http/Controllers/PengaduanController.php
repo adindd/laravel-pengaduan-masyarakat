@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Masyarakat;
 use App\Models\Pengaduan;
+use App\Models\Tanggapan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\view\view;
 
 class PengaduanController extends Controller
 {
@@ -16,7 +18,7 @@ class PengaduanController extends Controller
            //Query Builder
            //$pengaduan = DB::table('pengaduan')->get();
             //Elloquent ORM
-            
+           //$judul = "selamat datang";
            $pengaduan = Pengaduan::all();
            return view('table', ['pengaduan' => $pengaduan]);
         }
@@ -48,12 +50,13 @@ class PengaduanController extends Controller
     
 
     function proses_tambah_pengaduan(Request $request){
-        $nama_foto = $request->foto->getClientOriginalName();
+       
 
         $request->validate([
 
             'isi_laporan' => 'required|min:5'
         ]);
+        $nama_foto = $request->foto->getClientOriginalName();
         $request->foto->storeAs('public/image', $nama_foto);
         $isi_laporan = $request->isi_laporan;
 
@@ -93,8 +96,20 @@ class PengaduanController extends Controller
        return redirect()->back();
     }
     function detail($id){
-        $pengaduan = DB::table('pengaduan')->where('id_pengaduan', '=', $id)->get();
-        return view('/detail' ,['pengaduan' => $pengaduan]);
+        $pengaduan  = Pengaduan::where('id_pengaduan', $id)->first();
+        //$tanggapan = Tanggapan::where('id_pengaduan', $id)->get();
+        $tanggapan = DB::table('tanggapan')
+        ->join ('petugas', 'petugas.id', '=', 'tanggapan.id_petugas')
+        ->where ('tanggapan.id_pengaduan', $id)
+        ->get();
+        //select from tanggapan Join Petugas
+        //return $tanggapan;
+        return view ("detail_pengaduan", ["data"=> $pengaduan, 'tanggapan' => $tanggapan]);
+        
+        //$pengaduan = DB::table('pengaduan')
+        //->where('id_pengaduan', '=', $id)
+        //->first();
+        //return view('/detail' ,['pengaduan' => $pengaduan]);
      }
      function update($id){
         $pengaduan = DB::table('pengaduan')->where('id_pengaduan', '=', $id)->first();

@@ -8,23 +8,20 @@ class LoginPetugasController extends Controller
 {
     public function index(){
        // return Hash::make("123");
-        return view('auth.login_petugas');
+        return view('auth.loginpetugas');
     }
 
     public function loginpetugas(Request $request){
         $data = $request->only('username', 'password');
         if (Auth::guard('petugas')->attempt($data)){
-           echo redirect("/petugas/login")->with("error", "username atau password salah");
+           return redirect('/petugas/home');
         }else {
             return redirect("/petugas/login");
         }
     }
-    function logout(){
-            Auth::guard("petugas")->logout();
-            return redirect ('petugas.home');
+    public function logout(){
+            Auth::guard('petugas')->logout();
+            return redirect ('/petugas/login');
     }
-    public function home (){
-    return view ('petugas.home');
+
 }
-}
-// 

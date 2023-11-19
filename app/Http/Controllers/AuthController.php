@@ -12,14 +12,16 @@ class Authcontroller extends Controller
         return view('/register');
     }
      function store (Request $request){
-        // var_dump($request->all());
-        //masukkin data
+        //var_dump($request->all());
+        //Masuk data
+
         $data = DB::table("masyarakat")->insert([
             'nik' => $request->nik,
             'nama' => $request->nama,
             'username' => $request->username,
-            'telp' => $request->telp,
             'password' => Hash::make ($request->password),
+            'telp' => $request->telp,
+           
         ]);
      }  
 

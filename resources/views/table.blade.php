@@ -56,7 +56,7 @@ body
       <td>{{$pengaduan->tgl_pengaduan}}</td>
       <td>{{$pengaduan->nik}}</td>
       <td>{{$pengaduan->isi_laporan}}</td>
-      <td>{{$pengaduan->foto}}</td>
+      <td> <img src={{asset("storage/image/$pengaduan->foto")}}></td>
       <td>{{$pengaduan->status}}</td>
       <td>
         

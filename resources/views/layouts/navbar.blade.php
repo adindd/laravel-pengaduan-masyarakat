@@ -19,9 +19,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        
-      </ul>
+        </ul>
+      <script>
+        function confirmLogout() {
+          var confirmLogout -= confirm("anda yakin ingin logout?");
+          if (confirmLogout) {
+            window.location.href = "/logout";
+          }
+        }
+        </script>
+        <a class = "nav-link" href ={{url("/logout")}}><button class= "btn btn-outline-success" onclick="confirmLogout()">Logout</button></a>
 
   </div>
     </div>

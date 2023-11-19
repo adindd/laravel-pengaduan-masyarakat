@@ -9,8 +9,7 @@
 <div>
 
  
-<a href="{{ url('registrasi') }}">Registrasi</a> |
-<a href="{{ url('login') }}">Login</a> |
+<a href="{{ url('table') }}">Table</a> |
 
 
 

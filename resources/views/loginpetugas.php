@@ -118,8 +118,6 @@ body {
         <div class="input">
           <h1>Login Petugas</h1>
             <form action="login" method="POST">
-            @method("POST")
-            @csrf
             
             <div class="box-input">
              <i class="fa fa-solid fa-envelope"></i>

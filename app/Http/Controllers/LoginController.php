@@ -14,10 +14,15 @@ class LoginController extends Controller
     }
     function login(Request $request){
         $dataLogin = $request->only("username", "password"); //ambil data
+
+        
         if(Auth::attempt($dataLogin)){ //proses
+            //return "hasil";
             return redirect ("/home");
         } else{
-            return redirect ("/table")->with("error", "username atau password salah");
+            // echo "gagal login";
+           // return "gagal";
+            return redirect ("/login");
         }
     }
 
